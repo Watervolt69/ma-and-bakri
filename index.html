@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Time Together - Wafaa & Aryan</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffb6c1, #ff6b81);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .our-story {
+            margin-bottom: 40px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-card h3 {
+            color: #ff6b81;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .story-card h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .story-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .quotes-section {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        .quote-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border-left: 5px solid #ff6b81;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            color: #ff6b81;
+        }
+
+        .promise-section {
+            background: rgba(255, 241, 243, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 5px solid #ff4757;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: pulseHighlight 2s infinite;
+        }
+
+        .promise-section h3 {
+            color: #ff4757;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .promise-section p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #ff4757;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .generate-btn {
+            background: #ffd700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .generate-btn:hover {
+            background: #ffcc00;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            color: #fff;
+            font-size: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        footer .heart {
+            color: #ff4757;
+            font-size: 1.2rem;
+            animation: beat 1s infinite alternate;
+            display: inline-block;
+        }
+
+        .continue-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .continue-section h3 {
+            color: #ff4757;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .choice-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .yes-btn {
+            padding: 12px 40px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-btn {
+            padding: 12px 40px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .yes-btn:hover, .no-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-message {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .final-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .no-choice {
+            font-weight: bold;
+            color: #ff4757;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        .popup-yes {
+            margin-top: 15px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes beat {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseHighlight {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+            }
+        }
+
+        /* Make the app responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .story-card {
+                padding: 15px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .choice-buttons {
+                flex-direction: column;
+            }
+
+            .yes-btn, .no-btn {
+                width: 100%;
+            }
+        }
+
+        /* Ensure story cards appear one by one */
+        .story-card:nth-child(1) { animation-delay: 0.2s; }
+        .story-card:nth-child(2) { animation-delay: 0.4s; }
+        .story-card:nth-child(3) { animation-delay: 0.6s; }
+        .story-card:nth-child(4) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wafaa & Aryan</h1>
+            <p class="subtitle">Our Beautiful Time Together</p>
+        </header>
+
+        <section class="our-story">
+            <h2><i class='bx bxs-heart'></i> Our Story <i class='bx bxs-heart'></i></h2>
+            <div class="timeline">
+                <div class="story-card">
+                    <h3><i class='bx bxs-game'></i> How We First Met in PUBG Mobile</h3>
+                    <p>The day our paths crossed while playing PUBG Mobile remains etched in my memory. Who would have thought a random team match would introduce me to someone so special? Your skills impressed me, but your personality captivated me even more.</p>
+                </div>
+
+                <div class="story-card">
+                    <h3><i class='bx bxl-instagram'></i> When We Exchanged Instagram IDs</h3>
+                    <p>"Let's stay connected!" - those three simple words that changed everything. Exchanging Instagram IDs (@aryan__bot and @wafaa_salem_2) moved our connection beyond the game and into real life, where I got to see the amazing person behind the player.</p>
+                </div>
+
+                <div class="story-card">
+                    <h3><i class='bx bxs-message-rounded-dots'></i> How We Grew Closer Through Messages</h3>
+                    <p>From occasional chats to daily conversations, our bond strengthened with every message. Sharing stories, dreams, jokes, and even the mundane moments of our days created an unbreakable connection between us that I cherish deeply.</p>
+                </div>
+
+                <div class="story-card">
+                    <h3><i class='bx bxs-heart'></i> Our Unforgettable Moments</h3>
+                    <p>Every laugh we shared, every problem we solved together, every time we stayed up late just talking - these moments have woven a beautiful tapestry of memories that I hold close to my heart. Our journey together has been filled with magic.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="promise-section">
+            <h3><i class='bx bxs-message-alt-error'></i> A Promise Forgotten</h3>
+            <p>You made a promise, but it seems you've forgotten. Do I mean nothing to you? The words you spoke meant everything to me, but your actions tell a different story. I still believe in what we have, but I need to know if you do too.</p>
+        </section>
+
+        <section class="continue-section">
+            <h3>Do You Want To Continue This Journey Together?</h3>
+            <div class="choice-buttons">
+                <button class="yes-btn" onclick="chooseYes()">Yes</button>
+                <button class="no-btn" onclick="chooseNo()">No</button>
+            </div>
+            
+            <div id="result-message" class="result-message">
+                <p class="final-quote">"In a world of temporary things, you are my only permanence. Every moment with you is a treasure I hold dear to my heart."</p>
+                <p class="no-choice">You have no choice mommy, click Yes</p>
+                <button class="yes-btn popup-yes" onclick="chooseYes()">Yes</button>
+            </div>
+        </section>
+
+        <section class="quotes-section">
+            <h2><i class='bx bxs-quote-alt-left'></i> Love Quotes <i class='bx bxs-quote-alt-right'></i></h2>
+            
+            <div class="quote-container">
+                <p class="quote" id="quote">"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."</p>
+                <p class="quote-author">- Maya Angelou</p>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn generate-btn" onclick="generateQuote()">
+                    <i class='bx bx-refresh'></i> New Quote
+                </button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="copyQuote()">
+                    <i class='bx bx-copy'></i> Copy
+                </button>
+                <button class="btn" onclick="sendToAryan()">
+                    <i class='bx bxl-instagram'></i> Send to Aryan
+                </button>
+                <button class="btn" onclick="sendToWafaa()">
+                    <i class='bx bxl-instagram'></i> Send to Wafaa
+                </button>
+                <button class="btn" onclick="shareQuote()">
+                    <i class='bx bx-share-alt'></i> Share
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with <span class="heart">❤️</span> by Aryan</p>
+        </footer>
+    </div>
+
+    <script>
+        // Array of love quotes
+        const quotes = [
+            {
+                text: "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.",
+                author: "Maya Angelou"
+            },
+            {
+                text: "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.",
+                author: "Angelita Lim"
+            },
+            {
+                text: "The best thing to hold onto in life is each other.",
+                author: "Audrey Hepburn"
+            },
+            {
+                text: "You don't love someone for their looks, or their clothes, or for their fancy car, but because they sing a song only you can hear.",
+                author: "Oscar Wilde"
+            },
+            {
+                text: "I love you not because of who you are, but because of who I am when I am with you.",
+                author: "Roy Croft"
+            },
+            {
+                text: "Every moment spent with you is like a beautiful dream come true.",
+                author: "Unknown"
+            },
+            {
+                text: "You're the first person I want to talk to when I wake up and the last person I want to hear from before I fall asleep.",
+                author: "Unknown"
+            },
+            {
+                text: "Meeting you was fate, becoming your friend was a choice, but falling for you was beyond my control.",
+                author: "Unknown"
+            },
+            {
+                text: "You are my today and all of my tomorrows.",
+                author: "Leo Christopher"
+            },
+            {
+                text: "If I know what love is, it is because of you.",
+                author: "Hermann Hesse"
+            }
+        ];
+
+        // Function to display a random quote
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').textContent = `"${quotes[randomIndex].text}"`;
+            document.querySelector('.quote-author').textContent = `- ${quotes[randomIndex].author}`;
+        }
+
+        // Function to copy the quote
+        function copyQuote() {
+            const quote = document.getElementById('quote').textContent;
+            const author = document.querySelector('.quote-author').textContent;
+            const fullQuote = `${quote} ${author}`;
+            
+            navigator.clipboard.writeText(fullQuote).then(() => {
+                alert('Quote copied to clipboard!');
+            });
+        }
+
+        // Function to send to Aryan's Instagram
+        function sendToAryan() {
+            window.open('https://www.instagram.com/direct/t/aryan__bot', '_blank');
+        }
+
+        // Function to send to Wafaa's Instagram
+        function sendToWafaa() {
+            window.open('https://www.instagram.com/direct/t/wafaa_salem_2', '_blank');
+        }
+
+        // Function to share the quote
+        function shareQuote() {
+            const quote = document.getElementById('quote').textContent;
+            const author = document.querySelector('.quote-author').textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'A Special Quote',
+                    text: `${quote} ${author} - From Our Time Together App`
+                })
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                alert('Your browser does not support sharing. Please copy and share manually.');
+            }
+        }
+
+        // Function when Yes is clicked
+        function chooseYes() {
+            window.open('https://www.instagram.com/direct/t/aryan__bot', '_blank');
+        }
+
+        // Function when No is clicked
+        function chooseNo() {
+            document.getElementById('result-message').style.display = 'block';
+            // Scroll to the result message
+            document.getElementById('result-message').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Animation for story cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to story cards as they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Select all story cards and observe them
+            const storyCards = document.querySelectorAll('.story-card');
+            storyCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
